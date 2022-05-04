@@ -1,0 +1,19 @@
+.timerCon {
+  width: 100%;
+  height: 30px;
+  position: fixed;
+  bottom: 0;
+}
+
+.timer {
+  background: #e90052;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  transition: width 3s linear;
+}
+
+.timer.on {
+  width: 0%;
+}

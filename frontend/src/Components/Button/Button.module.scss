@@ -1,0 +1,44 @@
+.button {
+  font-family: 'Bangers';
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  background: #37003c;
+  border-radius: 10px;
+  margin: 0 0 6px 0;
+  border: none;
+  padding: 14px;
+  color: #fff;
+  font-size: 26px;
+  max-width: 284px;
+}
+
+.button.launch {
+  background: #e90052;
+  font-size: 60px;
+  border-radius: 60px;
+  height: 120px;
+  width: 120px;
+  color: #fff;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// .button.standard {
+//   width: 100%;
+//   background: #37003c;
+//   border-radius: 10px;
+//   margin: 0 0 6px 0;
+//   border: none;
+//   padding: 14px;
+//   color: #fff;
+//   cursor: pointer;
+//   font-size: 26px;
+//   font-family: 'Bangers';
+// }
+
+.button.selected {
+  background: #e90052;
+}
