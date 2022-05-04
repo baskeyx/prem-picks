@@ -15,7 +15,6 @@ const Score = ({
   const feedbacks = ['', 'Cleared off the line!', 'In off the post!', 'Slots it home!', 'An absolute belter!', 'I swear you’ll never see anything like this every again!'];
   useEffect(() => {
     if (correct) {
-      console.log(feedbacks[roundScore]);
       setFeedback(feedbacks[roundScore]);
       setTimeout(() => {
         setScore(score + roundScore);
