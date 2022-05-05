@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import NumberEasing from 'react-number-easing';
+// import AnimatedNumber from 'react-animated-number';
 import Bubble from '../../Components/Bubble';
 import Heading from '../../Components/Heading';
 
@@ -12,7 +13,7 @@ const Score = ({
   setView,
 }) => {
   const [feedback, setFeedback] = useState('');
-  const feedbacks = ['', 'Cleared off the line!', 'In off the post!', 'Slots it home!', 'An absolute belter!', 'I swear you’ll never see anything like this every again!'];
+  const feedbacks = ['', 'Cleared off the line!', 'In off the post!', 'Slots it home!', 'An absolute belter!', 'I swear you’ll never see anything like this ever again!'];
   useEffect(() => {
     if (correct) {
       setFeedback(feedbacks[roundScore]);
@@ -46,7 +47,7 @@ const Score = ({
           </Bubble>
         </Bubble>
       </section>
-      <Heading Type='h2'>{feedback}</Heading>
+      <Heading Type='h1'>{feedback}</Heading>
     </div>
   );
 };
