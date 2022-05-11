@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import ReactGA from 'react-ga';
 import Heading from '../../Components/Heading';
 import Bubble from '../../Components/Bubble';
 import Button from '../../Components/Button';
@@ -23,7 +22,15 @@ const GameOver = ({
         'Content-Type': 'application/json',
       },
     });
-    ReactGA.event({ category: 'Game', action: 'Finished', label: score });
+    window.dataLayer.push({
+      event: 'event',
+      eventProps: {
+        category: 'Game',
+        action: 'Click',
+        label: 'End',
+        value: score,
+      },
+    });
     setPosition(gameResponse.payload.position);
   }, []);
 

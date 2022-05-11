@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import ReactGA from 'react-ga';
+import TagManager from 'react-gtm-module';
 import Start from './Views/Start';
 import Game from './Views/Game/Game';
 import Header from './Components/Header';
 import './App.css';
 
-const TRACKING_ID = 'G-42MFRLJH0Q';
-ReactGA.initialize(TRACKING_ID);
-ReactGA.pageview(window.location.pathname + window.location.search);
+const tagManagerArgs = {
+  gtmId: 'G-42MFRLJH0Q',
+};
+
+TagManager.initialize(tagManagerArgs);
 
 const App = () => {
   const [view, setView] = useState(0);

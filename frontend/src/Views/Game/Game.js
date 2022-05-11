@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import ReactGA from 'react-ga';
 import Round from '../../Components/Round';
 import Score from '../Score';
 import GameOver from '../GameOver';
@@ -24,7 +23,14 @@ const Game = ({ id }) => {
     setGameId(gameResponse.payload.id);
     setScore(0);
     setView(0);
-    ReactGA.event({ category: 'Game', action: 'Started', label: '' });
+    window.dataLayer.push({
+      event: 'event',
+      eventProps: {
+        category: 'Game',
+        action: 'Click',
+        label: 'Start',
+      },
+    });
   };
   useEffect(async () => {
     newGame();
