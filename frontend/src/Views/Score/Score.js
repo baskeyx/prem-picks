@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import NumberEasing from 'react-number-easing';
-// import AnimatedNumber from 'react-animated-number';
 import Bubble from '../../Components/Bubble';
 import Heading from '../../Components/Heading';
 
