@@ -4,7 +4,9 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const { v4: uuidv4 } = require('uuid');
 const { players } = require('./backend/models/players.model.js');
+const { games } = require('./backend/models/games.model');
 
 const mongo = {
   username: process.env.MONGOUSERNAME,
@@ -31,8 +33,23 @@ const limiter = rateLimit({
 });
 app.use(limiter)
 
-function getRandomInt(max) {
+const getRandomInt = (max)=> {
   return Math.floor(Math.random() * max);
+}
+
+const ordinal_suffix_of = async (i) => {
+  var j = i % 10,
+      k = i % 100;
+  if (j == 1 && k != 11) {
+      return i + "st";
+  }
+  if (j == 2 && k != 12) {
+      return i + "nd";
+  }
+  if (j == 3 && k != 13) {
+      return i + "rd";
+  }
+  return i + "th";
 }
 
 app.get('/ping', (req, res) => {
@@ -56,6 +73,38 @@ app.get('/player', async (req, res) => {
   const correctAnswer = getRandomInt(3);
   response.players[correctAnswer].status = true;
   res.send(response);
+});
+
+app.post('/game', async (req, res) => {
+  console.log(req.body);
+  const userId = req.body.id;
+  const game = {
+    id: uuidv4(),
+    userId,
+  }
+  const gameResponse = await games.create(game);
+  res.send(gameResponse);
+});
+
+app.put('/game/:id', async (req, res) => {
+  const { id } = req.params;
+  const { userId, score } = req.body;
+  console.log(id, userId, score);
+  const gameExists = await games.find({ id, userId });
+  console.log(gameExists);
+  if (!gameExists[0].complete) {
+    const game = {
+      id,
+      userId,
+      score,
+      complete: true,
+      completedDate: Date.now(),
+    }
+    const gameComplete = await games.updateOne({ id, userId }, game)
+    const gameScorePosition = await games.find({ score : { $gt : score } }).count(); 
+    console.log(gameScorePosition);
+    res.send({ id, userId, position: await ordinal_suffix_of(gameScorePosition + 1) });
+  }
 });
 
 //app.use(handleErrors);

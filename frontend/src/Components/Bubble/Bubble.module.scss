@@ -32,3 +32,17 @@
   bottom: 0;
   right: 0;
 }
+
+.bubble.position {
+  background: #38003c;
+  color: #00ff85;
+  font-size: 20px;
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  div {
+   font-size: 14px; 
+  }
+}
