@@ -22,15 +22,6 @@ const GameOver = ({
         'Content-Type': 'application/json',
       },
     });
-    window.dataLayer.push({
-      event: 'event',
-      eventProps: {
-        category: 'Game',
-        action: 'Click',
-        label: 'End',
-        value: score,
-      },
-    });
     setPosition(gameResponse.payload.position);
   }, []);
 

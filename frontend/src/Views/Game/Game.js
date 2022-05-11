@@ -23,14 +23,6 @@ const Game = ({ id }) => {
     setGameId(gameResponse.payload.id);
     setScore(0);
     setView(0);
-    window.dataLayer.push({
-      event: 'event',
-      eventProps: {
-        category: 'Game',
-        action: 'Click',
-        label: 'Start',
-      },
-    });
   };
   useEffect(async () => {
     newGame();
