@@ -14,7 +14,7 @@ const Game = ({ id }) => {
   const [gameId, setGameId] = useState('');
 
   const newGame = async () => {
-    const gameResponse = await Fetch(`${Server}/game`, {
+    const gameResponse = await Fetch(`${Server}/api/game`, {
       method: 'POST',
       body: JSON.stringify({ id }),
       headers: {

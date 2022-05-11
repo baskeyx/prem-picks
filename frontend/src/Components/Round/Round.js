@@ -13,7 +13,7 @@ const Round = ({
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getOptions = async () => {
-      const playersResponse = await Fetch(`${Server}/player`);
+      const playersResponse = await Fetch(`${Server}/api/player`);
       const correct = playersResponse.payload.players.find((player) => player.status);
       setId(correct.id);
       setOptions(playersResponse.payload.players);

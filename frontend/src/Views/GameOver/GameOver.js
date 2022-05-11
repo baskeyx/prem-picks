@@ -16,7 +16,7 @@ const GameOver = ({
 }) => {
   const [position, setPosition] = useState('');
   useEffect(async () => {
-    const gameResponse = await Fetch(`${Server}/game/${gameId}`, {
+    const gameResponse = await Fetch(`${Server}/api/game/${gameId}`, {
       method: 'PUT',
       body: JSON.stringify({ userId: id, score }),
       headers: {
