@@ -2,7 +2,7 @@ import styles from './Header.module.scss';
 
 const Header = () => (
   <header className={styles.header}>
-    <img className={styles.logo} src='https://bucketeer-fc372a20-7c59-4eff-9882-cfa444a1cba6.s3.amazonaws.com/public/prem_logo.png' alt='Premier League' />
+    <img className={styles.logo} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/STRIPCLUB.webp' alt='Strip Club' />
   </header>
 );
 
